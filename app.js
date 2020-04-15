@@ -15,14 +15,13 @@ app.use(function (req, res, next) {
 
 // Routes
 
-const gamedetails = require('./routes/index');
-const userdetails = require('./routes/index');
+const route = require('./routes/index');
 
 app.use(bodyParser.json());
 
 try {
-    app.use('/GameDetails', gamedetails);
-    app.use('/userDetails', userdetails);
+    app.use('/GameDetails', route);
+    app.use('/userDetails', route);
 }
 catch (e) {
     console.log(e);
@@ -43,5 +42,5 @@ app.use((err, req, res, next) => {
 });
 
 //Start the server
-const port = app.get('port') || 3000;
+const port = app.get('port') || 4000;
 app.listen(port, () => console.log('Server is listening on port ' + port));
